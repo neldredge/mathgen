@@ -46,10 +46,10 @@ $0 [options]
   Options:
 
     --help                    Display this help message
-    --author <quoted_name>    An author of the paper (can be specified 
+    --author=<quoted_name>    An author of the paper (can be specified 
                               multiple times)
                               Default: One random author
-    --mode pdf|zip|dir|view|raw
+    --mode=pdf|zip|dir|view|raw
                               What to output
     	   		      pdf: Output a PDF file
 			      zip: Output a zip file with 
@@ -58,13 +58,13 @@ $0 [options]
 			       	   specified with --dir
 			      view: Invoke viewer on PDF file
 			      raw: Output raw tex/txt only (required for blurb)
-    --viewer <prog>	      Use <prog> as PDF viewer (default: $default_viewer)
-    --dir <dir>		      For --mode=dir: use <dir> for output
-    --output <file>	      For --mode=pdf,zip,raw: Output to <file>
+    --viewer=<prog>	      Use <prog> as PDF viewer (default: $default_viewer)
+    --dir=<dir>		      For --mode=dir: use <dir> for output
+    --output=<file>	      For --mode=pdf,zip,raw: Output to <file>
     	     		      Use - for stdout
-    --product article|book|blurb
+    --product=article|book|blurb
                               What to generate (default: $default_product)
-    --seed <seed>             Use <seed> to seed the PRNG
+    --seed=<seed>             Use <seed> to seed the PRNG
     --debug                   Enable various debugging features
 EOUsage
     exit(1);
