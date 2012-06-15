@@ -135,7 +135,7 @@ A quick road map to the files in the source distribution:
 Credits
 =======
 
-Mathgen was written by Nate Eldredge <nate@thatsmathematics.com>,
+Mathgen was written by Nate Eldredge <nate at thatsmathematics dot com>,
 incorporating code from SCIgen (http://pdos.csail.mit.edu/scigen/),
 by Jeremy Stribling, Max Krohn, and Dan Aguayo, without whom this
 project would not exist.  Jordan Eldredge wrote most of the web
