@@ -1,0 +1,84 @@
+START SCIBLURB
+
+.include scirules.in
+
+GOOD up-to-date
+GOOD modern
+GOOD newly revised
+GOOD well-written
+GOOD accessible
+GOOD accurate
+GOOD successful
+GOOD anticipated
+GOOD outstanding
+GOOD readable
+GOOD erudite
+GOOD appealing
+GOOD brilliant
+GOOD lucid
+GOOD eloquent
+GOOD engaging
+GOOD inviting
+GOOD rewarding
+GOOD stimulating
+GOOD instructive
+GOOD informative
+GOOD illuminating
+GOOD comprehensive
+
+LEVEL beginning
+LEVEL intermediate
+LEVEL advanced
+
+PROG undergraduate
+PROG graduate
+PROG postdoctoral
+PROG high school
+
+BOOK text
+BOOK reference
+BOOK resource
+BOOK book
+BOOK monograph
+BOOK handbook
+
+HIGHLY highly
+HIGHLY strongly
+HIGHLY emphatically
+HIGHLY enthusiastically
+HIGHLY eagerly
+
+BIGSHOT famous
+BIGSHOT renowned
+BIGSHOT well-known
+BIGSHOT respected
+BIGSHOT prize-winning
+BIGSHOT eminent
+BIGSHOT acclaimed
+BIGSHOT prominent
+BIGSHOT notable
+BIGSHOT distinguished
+
+BULLSHIT In the last SMALL_NUM years, many advances have been made in AREA.
+BULLSHIT This GOOD BOOK is HIGHLY recommended as a PROG textbook.
+BULLSHIT The BIGSHOT author is a BIGSHOT expert in AREA.
+BULLSHIT TITLE will be accessible to anyone familiar with AREA and AREA.
+BULLSHIT Intended for researchers and LEVEL PROG students, this GOOD BOOK will introduce the reader to CONCEPT as well as CONCEPT.
+BULLSHIT The BOOK includes EXNUM GOOD exercises as an aid to understanding.
+BULLSHIT The BIGSHOT author makes a point of introducing OBJECTS immediately.
+BULLSHIT A GOOD discussion of OBJECTS is reserved to later chapters.
+BULLSHIT An extensive bibliography is included for further reading.
+BULLSHIT In the middle chapters, the focus shifts to CONCEPT.
+BULLSHIT The BIGSHOT author's GOOD writing makes this BOOK ideal for self-study by LEVEL PROG student.
+BULLSHIT The BOOK combines a GOOD account of AREA with a GOOD description of CONCEPT.
+
+SHE s/he
+
+AINFO Authorname is the author of NONZDIGIT books, including BTITLE and BTITLE, and SMALL_NUM articles, mainly in AREA with an emphasis on OBJECTS.  SHE is the chief editor of JTITLE and an associate editor of JTITLE and JTITLE.  Since SCI_YEAR, SHE has held the FAMOUS Chair of Mathematics at a well-known PLACEADJ university.  SHE is a winner of the SCI_YEAR FAMOUS Medal and the SCI_YEAR FAMOUS Prize.
+
+SCIBLURB {
+
+BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT BULLSHIT
+
+AINFO
+}

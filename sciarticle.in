@@ -1,0 +1,352 @@
+
+#
+# $Id: scirules.in,v 1.141 2007/11/19 17:07:49 strib Exp $
+#
+
+#    This file is part of SCIgen.
+#
+#    SCIgen is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    SCIgen is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with SCIgen; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+START SCIPAPER_LATEX
+
+.include scirules.in
+
+TESTPARA
+
+WORK paper
+WORK article
+
+SDISCUSS in CITATION, it is shown that ASSERTION.
+SDISCUSS recently, there has been much interest in the METANOUN of OBJECTS.
+DISCUSS a {}useful survey of the subject can be found in CITATION.
+DISCUSS it is essential to consider that $VAR$ may be PROPERTY.
+SDISCUSS it was FAMOUS who first asked whether OBJECTS can be METAVERBED.
+DISCUSS this could shed important light on a conjecture of FAMOUS.
+SDISCUSS we wish to extend the results of CITATION to OBJECTS.
+DISCUSS unfortunately, we cannot assume that ASSERTION.
+SDISCUSS every student is aware that ASSERTION.
+SDISCUSS recent developments in AREA CITATION have raised the question of whether ASSERTION.
+DISCUSS in this context, the results of CITATION are highly relevant.
+DISCUSS this reduces the results of CITATION to BIGTHEOREM.
+SDISCUSS it has long been known that ASSERTION CITATION.
+SDISCUSS AUTHOR's METANOUN of OBJECTS was a milestone in AREA.
+DISCUSS this leaves open the question of PROPNOUN.
+SDISCUSS it is well known that ASSERTION.
+DISCUSS it would be interesting to apply the techniques of CITATION to OBJECTS.
+DISCUSS in future work, we plan to address questions of PROPNOUN as well as PROPNOUN.
+DISCUSS the groundbreaking work of AUTHOR on OBJECTS was a major advance.
+SDISCUSS in CITATION, the authors address the PROPNOUN of OBJECTS under the additional assumption that ASSERTION.
+SDISCUSS the goal of the present WORK is to METAVERB OBJECTS.
+DISCUSS it is not yet known whether ASSERTION, although CITATION does address the issue of PROPNOUN.
+SDISCUSS in CITATION, the main result was the METANOUN of OBJECTS.
+DISCUSS in this setting, the ability to METAVERB OBJECTS is essential.
+SDISCUSS recent interest in OBJECTS has centered on METAVERBING OBJECTS.
+SDISCUSS a central problem in AREA is the METANOUN of OBJECTS.
+SDISCUSS in CITATION, the authors METAVERBED OBJECTS.
+SDISCUSS is it possible to METAVERB OBJECTS?
+DISCUSS AUTHOR CITATION improved upon the results of AUTHOR by METAVERBING OBJECTS.
+DISCUSS here, PROPNOUN is CLEARLY a concern.
+DISCUSS the work in CITATION did not consider the PROPLIST case.
+
+SCIPAPER_LATEX {
+
+ HEADER_TITLE_ABSTRACT
+
+ TESTPARA
+
+ TESTPARA
+
+ TESTPARA
+
+ SCI_INTRO
+
+ SCI_BODY
+
+ SCI_CONCL
+
+ LATEX_FOOTER
+
+}
+
+STARTER_CITATIONS NOCITATION NOCITATION NOCITATION NOCITATION NOCITATION 
+
+HEADER_TITLE_ABSTRACT+999 {
+
+HEADER_AMSART
+
+ABSTRACT
+
+TITLEBLOCK_AMSART
+
+}
+
+HEADER_TITLE_ABSTRACT {
+
+HEADER_ARTICLE
+
+TITLEBLOCK_ARTICLE
+
+ABSTRACT
+
+}
+
+#############################################################################
+####### Titles #######
+#############################################################################
+
+SCI_TITLE ATITLE
+
+
+# ! = do not choose the same expansion twice for this rule
+AUTHOR_NAME!
+
+#############################################################################
+####### Abstract #######
+#############################################################################
+
+ABSTRACT {
+\begin{abstract}
+ ABSTRACT_BODY
+\end{abstract}
+}
+
+ABSTRACT_BODY  ASSUMPTION.  SDISCUSSION  We show that ASSERTION.  DISCUSSION DISCUSSION
+
+
+#############################################################################
+####### Intro #######
+#############################################################################
+
+SCI_INTRO_HEADER \section{Introduction}
+
+SCI_INTRO {
+
+ SCI_INTRO_HEADER
+
+ DISCUSSIONPARA
+
+ DISCUSSIONPARA
+
+ DISCUSSIONPARA
+
+ DISCUSSIONPARA
+
+}
+
+
+#############################################################################
+####### Body #######
+#############################################################################
+
+SCI_BODY+2 {
+
+SCI_MAIN_RESULT
+
+SCI_SECTION
+
+SCI_SECTION
+
+SCI_SECTION
+
+}
+
+SCI_BODY+2 {
+
+SCI_MAIN_RESULT
+
+SCI_SECTION
+
+SCI_SECTION
+
+SCI_SECTION
+
+SCI_SECTION
+
+}
+
+SCI_BODY {
+
+SCI_MAIN_RESULT
+
+SCI_SECTION
+
+SCI_SECTION
+
+SCI_SECTION
+
+SCI_SECTION
+
+SCI_SECTION
+
+}
+
+SCI_MAIN_RESULT {
+
+\section{Main result}
+
+DEFINITION
+
+DEFINITION
+
+DISCUSSIONPARA
+
+DEFINITION
+
+We now state our main result.
+
+THEOREM
+
+DISCUSSIONPARA
+
+}
+
+SCI_SECTION {
+
+\section{SECTION_TITLE}
+
+SECTION_BODY
+
+}
+
+
+
+SECTION_BODY {
+
+DISCUSSIONPARA
+
+ASSUMPTION.
+
+DEFINITION
+
+DEFINITION
+
+RESULT
+
+PROOF
+
+RESULT
+
+PROOF
+
+DISCUSSIONPARA
+
+}
+
+
+#############################################################################
+####### Conclusion #######
+#############################################################################
+
+SCI_CONCL {
+
+\section{Conclusion}
+
+DISCUSSIONPARA
+
+CONJECTURE
+
+DISCUSSIONPARA
+
+CONJECTURE
+
+DISCUSSIONPARA
+
+}
+
+
+
+#############################################################################
+######## LaTeX stuff ########
+#############################################################################
+
+PREAMBLE {
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[numbers]{natbib}
+\usepackage[fit]{truncate}
+LATEX_MAYBE_FULLPAGE
+
+\newcommand{\truncateit}[1]{\truncate{0.8\textwidth}{#1}}
+\newcommand{\scititle}[1]{\title[\truncateit{#1}]{#1}}
+
+\pdfinfo{ /MathgenSeed (SEED) }
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{question}{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+}
+
+HEADER_AMSART {
+\documentclass[LATEX_FONTSIZE]{amsart}
+PREAMBLE
+\begin{document}
+}
+
+TITLEBLOCK_AMSART {
+\scititle{SCI_TITLE}
+\author{SCIAUTHORS}
+\date{}
+\maketitle
+}
+
+
+HEADER_ARTICLE {
+\documentclass[LATEX_FONTSIZE]{article}
+PREAMBLE
+\begin{document}
+}
+
+TITLEBLOCK_ARTICLE {
+\title{SCI_TITLE}
+\author{SCIAUTHORS}
+\date{}
+\maketitle
+}
+
+LATEX_BIBSTYLE \bibliographystyle{plainnat}
+
+LATEX_FONTSIZE 11pt
+LATEX_FONTSIZE 10pt
+
+LATEX_MAYBE_FULLPAGE+999
+LATEX_MAYBE_FULLPAGE \usepackage{fullpage}
+
+LATEX_FOOTER {
+
+\begin{footnotesize}
+\bibliography{scigenbibfile}
+LATEX_BIBSTYLE
+\end{footnotesize}
+
+\end{document}
+
+}
+
+LATEX_TITLE \title{SCI_TITLE}
+LATEX_AUTHORS \author{SCIAUTHORS}
+

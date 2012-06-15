@@ -1,0 +1,424 @@
+
+#
+# $Id: scirules.in,v 1.141 2007/11/19 17:07:49 strib Exp $
+#
+
+#    This file is part of SCIgen.
+#
+#    SCIgen is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    SCIgen is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with SCIgen; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+START SCIBOOK_LATEX
+
+.include scirules.in
+
+WORK text
+WORK section
+WORK book
+
+SDISCUSS in CITATION, it is shown that ASSERTION.
+SDISCUSS recently, there has been much interest in the METANOUN of OBJECTS.
+DISCUSS a {}useful survey of the subject can be found in CITATION.
+DISCUSS it is essential to consider that $VAR$ may be PROPERTY.
+SDISCUSS it was FAMOUS who first asked whether OBJECTS can be METAVERBED.
+DISCUSS this could shed important light on a conjecture of FAMOUS.
+#SDISCUSS we wish to extend the results of CITATION to OBJECTS.
+DISCUSS unfortunately, we cannot assume that ASSERTION.
+SDISCUSS every student is aware that ASSERTION.
+SDISCUSS recent developments in AREA have raised the question of whether ASSERTION.
+DISCUSS in this context, the results of CITATION are highly relevant.
+DISCUSS this reduces the results of CITATION to BIGTHEOREM.
+SDISCUSS it has long been known that ASSERTION CITATION.
+SDISCUSS AUTHOR's METANOUN of OBJECTS was a milestone in AREA.
+DISCUSS this leaves open the question of PROPNOUN.
+SDISCUSS it is well known that ASSERTION.
+DISCUSS it would be interesting to apply the techniques of CITATION to OBJECTS.
+#DISCUSS in future work, we plan to address questions of PROPNOUN as well as PROPNOUN.
+DISCUSS the groundbreaking work of AUTHOR on OBJECTS was a major advance.
+SDISCUSS in CITATION, the authors address the PROPNOUN of OBJECTS under the additional assumption that ASSERTION.
+SDISCUSS the goal of the present WORK is to METAVERB OBJECTS.
+DISCUSS it is not yet known whether ASSERTION, although CITATION does address the issue of PROPNOUN.
+SDISCUSS in CITATION, the main result was the METANOUN of OBJECTS.
+DISCUSS in this setting, the ability to METAVERB OBJECTS is essential.
+SDISCUSS recent interest in OBJECTS has centered on METAVERBING OBJECTS.
+SDISCUSS a central problem in AREA is the METANOUN of OBJECTS.
+SDISCUSS in CITATION, the authors METAVERBED OBJECTS.
+SDISCUSS is it possible to METAVERB OBJECTS?
+DISCUSS AUTHOR improved upon the results of AUTHOR by METAVERBING OBJECTS.
+DISCUSS here, PROPNOUN is CLEARLY a concern.
+DISCUSS the work in CITATION did not consider the PROPLIST case.
+
+# Cut down the size of the bibliography
+CITATION_SINGLE+3 CITATION_OLD
+
+SCIBOOK_LATEX {
+
+ LATEX_HEADER
+
+\frontmatter
+
+ NOCITATION
+ NOCITATION
+ NOCITATION
+ NOCITATION
+ NOCITATION
+
+PREFACE
+
+%ACKNOW%LEDGEMENTS
+
+\mainmatter
+
+CHAPTERS
+
+LATEX_FOOTER
+
+}
+
+TESTPARA
+
+#############################################################################
+####### Titles #######
+#############################################################################
+
+# ! = do not choose the same expansion twice for this rule
+AUTHOR_NAME!
+
+############################################################################
+###### Chapters, sections, etc
+############################################################################
+
+PREFACE {
+
+\chapter{Preface}
+
+DISCUSSIONPARAI 
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+}
+
+CHAPTERS CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER 
+CHAPTERS CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER 
+CHAPTERS CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER 
+CHAPTERS CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER 
+#CHAPTERS CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER 
+#CHAPTERS CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER CHAPTER 
+
+CHAPTER {
+
+\chapter{SECTION_TITLE}
+
+SECTIONS
+
+EXERCISES
+
+NOTES
+
+}
+
+SECTIONS+1 SECTION SECTION SECTION SECTION
+SECTIONS+1 SECTION SECTION SECTION SECTION SECTION
+SECTIONS+1 SECTION SECTION SECTION SECTION SECTION SECTION
+SECTIONS SECTION SECTION SECTION SECTION SECTION SECTION SECTION
+
+SECTION {
+
+\section{SECTION_TITLE}
+
+SECTION_INTRO
+
+SECTION_BODY
+
+}
+
+SECTION_INTRO {
+
+DISCUSSIONPARAI 
+
+}
+
+SECTION_INTRO {
+
+DISCUSSIONPARAI 
+
+DISCUSSIONPARAI 
+
+}
+
+
+# SUBSECTIONS SUBSECTION SUBSECTION
+# SUBSECTIONS SUBSECTION SUBSECTION SUBSECTION 
+# SUBSECTIONS SUBSECTION SUBSECTION SUBSECTION SUBSECTION 
+# SUBSECTIONS SUBSECTION SUBSECTION SUBSECTION  SUBSECTION SUBSECTION
+
+SECTION_BODY RES RES RES RES RES RES RES RES RES RES RES RES RES RES 
+SECTION_BODY RES RES RES RES RES RES RES RES RES RES RES RES RES 
+SECTION_BODY RES RES RES RES RES RES RES RES RES RES RES RES 
+SECTION_BODY+1 RES RES RES RES RES RES RES RES RES RES RES 
+SECTION_BODY+1 RES RES RES RES RES RES RES RES RES RES 
+SECTION_BODY+1 RES RES RES RES RES RES RES RES RES 
+SECTION_BODY+1 RES RES RES RES RES RES RES RES 
+SECTION_BODY+1 RES RES RES RES RES RES RES 
+SECTION_BODY RES RES RES RES RES RES 
+SECTION_BODY RES RES RES RES RES 
+
+# SUBSECTION RES RES RES RES RES RES RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES RES
+# SUBSECTION RES RES RES RES RES
+# SUBSECTION RES RES RES RES
+# SUBSECTION RES RES RES
+
+
+RES {
+
+DISCUSSIONPARAI
+
+RESULT 
+
+INDEX
+
+PROOF
+
+INDEX
+
+}
+
+RES+3 {
+
+RESULT
+
+INDEX
+
+PROOF 
+
+INDEX
+
+}
+
+EXERCISES {
+
+\section{Exercises}
+
+\begin{enumerate}
+SOME_EXERCISES
+\end{enumerate}
+
+}
+
+SOME_EXERCISES EXERCISE
+SOME_EXERCISES+16 SOME_EXERCISES EXERCISE
+
+PROVE prove that
+PROVE show that
+PROVE find an example to show that
+PROVE determine whether
+
+EXERCISE+3 {
+\item MAYBEASSUMPTION PROVE ASSERTION.
+}
+
+EXERCISE {
+\item MAYBEASSUMPTION use PROPNOUN to PROVE ASSERTION.
+}
+
+NOTES {
+\section{Notes}
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+
+DISCUSSIONPARAI
+}
+
+#################################################################
+####### Index entries
+#################################################################
+
+# We make no attempt to have the index entries bear any resemblance
+# to the text.  This is probably more realistic anyway. 
+
+# Indexes should occur on their own line to survive the prettyprinter
+
+DISCUSSIONPARAI {
+DISCUSSIONPARA 
+
+INDEX
+}
+
+INDEX \index{INDEXWORD}
+INDEX+4
+
+INDEXWORD+2 NOUNS
+INDEXWORD+2 NOUNS!PROPERTY
+INDEXWORD METANOUN
+INDEXWORD+2 PROPNOUN
+INDEXWORD+2 FAMOUS
+
+#############################################################################
+######## LaTeX stuff ########
+#############################################################################
+
+LATEX_HEADER {
+
+\documentclass[10pt]{book}
+% keep on one line with no spaces to avoid prettyprinter
+\usepackage[paperheight=9in,paperwidth=6in,includehead,includefoot,top=0.5in,bottom=0.5in,outer=0.5in,inner=0.75in]{geometry}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[numbers]{natbib}
+\numberwithin{equation}{section}
+\usepackage{txfonts}
+\usepackage{hyphenat}
+\usepackage[overload]{textcase} % Otherwise $p_t$ gets capitalized
+                                % into $P_T$ in chapter headings,
+                                % which is not desirable
+\usepackage[colorlinks=true,pdfstartview=FitV,linkcolor=black,citecolor=black,urlcolor=black,plainpages=false,pdfpagelabels]{hyperref}
+\usepackage[fit]{truncate}
+\usepackage[toctitles]{titlesec}
+\usepackage{makeidx}
+\makeindex
+\usepackage{url}
+\usepackage{tocbibind}
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{question}{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\setlength{\emergencystretch}{2em}
+
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+
+\begin{document}
+
+\frontmatter 
+
+\title{BTITLE}
+\author{SCIAUTHORS}
+\date{}
+\maketitle
+
+\null\vfill
+\noindent
+
+COPYRIGHT
+
+
+\newpage
+
+
+\tableofcontents
+
+
+}
+
+LATEX_CITEPACK % \usepackage{cite}
+
+LATEX_FONTCLASS
+
+LATEX_DOCCLASS \documentclass[LATEX_FONTSIZE]{article}
+LATEX_DOCCLASS \documentclass[LATEX_FONTSIZE]{amsart}
+
+LATEX_BIBSTYLE \bibliographystyle{plainnat}
+
+LATEX_FONTSIZE 11pt
+LATEX_FONTSIZE 10pt
+
+LATEX_MAYBE_FULLPAGE
+LATEX_MAYBE_FULLPAGE \usepackage{fullpage}
+
+LATEX_FOOTER {
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{scigenbibfile}
+
+\nohyphens{\printindex}
+
+\end{document}
+
+}
+
+LATEX_TITLE \title{SCI_TITLE}
+LATEX_AUTHORS \author{SCIAUTHORS}
+
+COPYRIGHT {
+
+{ \scriptsize
+
+\noindent This work is in the public domain.
+
+\vspace{1ex}
+
+\noindent The contents of this book were randomly generated by \texttt{mathgen}, a context-free grammar to produce random mathematical writing.  The program is freely available online at \url{http://www.thatsmathematics.com/mathgen/}.  Any similarity to real mathematics, mathematicians, persons, companies, entities, et cetera, is either coincidental or intended as parody.  The name of the author was also randomly chosen and does not refer to a real person.
+
+\vspace{1ex}
+
+
+\noindent The \texttt{mathgen} program was written by Nathaniel Eldredge, based heavily on SCIgen by Jeremy Stribling, Max Krohn, and Dan Aguayo, which is a program to produce random computer science articles.  SCIgen is also freely available online at \url{http://pdos.csail.mit.edu/scigen/}.
+
+\vspace{1ex}
+
+
+\noindent This book was generated on \today{} using the seed value SEED.}
+
+
+}

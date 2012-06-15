@@ -1,0 +1,1665 @@
+
+#
+# $Id: scirules.in,v 1.141 2007/11/19 17:07:49 strib Exp $
+#
+
+#    This file is part of SCIgen.
+#
+#    SCIgen is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    SCIgen is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with SCIgen; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+
+SECTION_TITLE An application to CONCEPT
+SECTION_TITLE Applications to CONCEPT
+SECTION_TITLE Connections to CONCEPT
+SECTION_TITLE The PROPLIST case
+SECTION_TITLE Basic results of AREA
+SECTION_TITLE Fundamental properties of OBJECTS
+SECTION_TITLE CONCEPT
+
+
+#############################################################################
+####### Environments #######
+#############################################################################
+
+DEFINITION {
+\begin{definition}
+DEFBODY
+\end{definition}
+}
+
+DEFBODY ASSUMPTION.  a OBJECT is a \textbf{NOUN} if it is PROPPHRASE.
+DEFBODY a OBJECT $VAR$ is \textbf{ADJECTIVE} if COND.
+DEFBODY ASSUMPTION.  We say a OBJECT $VAR$ is \textbf{ADJECTIVE} if it is PROPPHRASE.
+
+RESULT THEOREM
+RESULT LEMMA
+RESULT PROPOSITIONENV
+
+THEOREM {
+\begin{theorem}
+PROPOSITION
+\end{theorem}
+}
+
+
+LEMMA {
+\begin{lemma}
+PROPOSITION
+\end{lemma}
+}
+
+PROPOSITIONENV {
+\begin{proposition}
+PROPOSITION
+\end{proposition}
+}
+
+CONJECTURE {
+\begin{conjecture}
+PROPOSITION
+\end{conjecture}
+}
+
+
+PROOF {
+\begin{proof} 
+PROOFTEXT
+\end{proof}
+}
+
+
+#############################################################################
+####### Larger elements of text #######
+#############################################################################
+
+PROPOSITION ASSERTION.
+PROPOSITION ASSUMPTION.  Then ASSERTION.
+PROPOSITION ASSUMPTION.  ASSUMPTION.  Then ASSERTION.
+PROPOSITION ASSUMPTION.  ASSUMPTION.  Further, ASSUMPTION.  Then ASSERTION.
+
+COND+5 $VAR$ is PROPPHRASE
+COND+5 $VAR$ is RELATED $VAR$
+COND+5 $SHORTEQ$
+COND the Riemann hypothesis holds
+COND FAMOUSPOS condition is satisfied
+COND FAMOUSPOS criterion applies
+
+ASSUME assume
+ASSUME suppose
+ASSUME let us suppose
+ASSUME let us assume
+
+
+ASSUMPTION ASSUME ASSERTION
+ASSUMPTION let $SHORTEQ$
+ASSUMPTION let $VAR$ be a OBJECT
+ASSUMPTION ASSUME we are given a OBJECT $VAR$
+ASSUMPTION let $SHORTEQ$ be arbitrary
+
+ASSERTION+8 COND
+ASSERTION+8 $SHORTEQ$
+ASSERTION+4 every OBJECT is PROPPHRASE
+ASSERTION+4 there exists a PROPPHRASE OBJECT
+ASSERTION+4 INLINEEQ
+ASSERTION+4 DISPEQ
+#ASSERTION FAMOUSPOS conjecture is BOOL
+ASSERTION FAMOUSPOS conjecture is BOOL in the context of OBJECTS
+
+
+BOOL true
+BOOL false
+
+##########################################################################
+###### Proofs
+##########################################################################
+
+PROOFTEXT+3 BEGINPROOF PROOFBODY ENDPROOF
+PROOFTEXT This is CLEAR.
+PROOFTEXT See CITATION.
+PROOFTEXT BEGINPROOF LONGPROOF ENDPROOF
+
+BEGINPROOF We begin by observing that ASSERTION.
+BEGINPROOF Suppose the contrary.
+BEGINPROOF We proceed by induction.
+BEGINPROOF We proceed by transfinite induction.
+BEGINPROOF The essential idea is that ASSERTION.
+BEGINPROOF We follow CITATION.
+BEGINPROOF This proof can be omitted on a first reading.
+BEGINPROOF We show the contrapositive.
+BEGINPROOF We begin by considering a simple special case.
+BEGINPROOF One direction is CLEAR, so we consider the converse.
+
+ENDPROOF This completes the proof.
+ENDPROOF The result now follows by BIGTHEOREM.
+ENDPROOF This is the desired statement.
+ENDPROOF This CLEARLY implies the result.
+ENDPROOF The remaining details are CLEAR.
+ENDPROOF The interested reader can fill in the details.
+ENDPROOF This is a contradiction.
+ENDPROOF This contradicts the fact that ASSERTION.
+ENDPROOF The converse is CLEAR.
+
+CLEAR clear
+CLEAR simple
+CLEAR elementary
+CLEAR straightforward
+CLEAR obvious
+CLEAR trivial
+CLEAR left as an exercise to the reader
+
+CLEARLY clearly
+CLEARLY obviously
+CLEARLY trivially
+
+BIGTHEOREM the general theory
+BIGTHEOREM FAMOUSPOS theorem
+BIGTHEOREM standard techniques of AREA
+BIGTHEOREM an easy exercise
+BIGTHEOREM a well-known result of FAMOUS CITATION
+BIGTHEOREM a little-known result of FAMOUS CITATION
+BIGTHEOREM a recent result of GENERIC_LASTNAME CITATION
+BIGTHEOREM a standard argument
+BIGTHEOREM an approximation argument
+BIGTHEOREM well-known properties of OBJECTS
+BIGTHEOREM results of CITATION
+BIGTHEOREM the PROPNOUN of OBJECTS
+
+
+REASON+4 CLEARLY,
+REASON+2 by BIGTHEOREM,
+REASON by PROPNOUN,
+REASON as we have shown,
+REASON it is easy to see that
+REASON note that
+REASON we observe that
+REASON one can easily see that
+REASON because ASSERTION,
+REASON since ASSERTION,
+REASON of course,
+
+CONNECT thus
+CONNECT so
+CONNECT therefore
+CONNECT hence
+CONNECT now
+CONNECT next,
+CONNECT moreover,
+CONNECT on the other hand,
+CONNECT in contrast,
+
+CREASON REASON
+CREASON CONNECT
+
+PROOFSENTENCEONE REASON ASSERTION.
+PROOFSENTENCE CREASON ASSERTION.
+PROOFSENTENCEONE REASON if COND then ASSERTION.
+PROOFSENTENCE CREASON if COND then ASSERTION.
+
+MAYBEASSUMPTION
+MAYBEASSUMPTION ASSUMPTION.
+
+
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE PROOFSENTENCE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE
+PROOFPARA MAYBEASSUMPTION PROOFSENTENCEONE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE PROOFSENTENCE
+
+PROOFBODY {
+PROOFPARA
+}
+
+PROOFBODY {
+PROOFPARA
+
+PROOFPARA
+}
+
+PROOFBODY {
+PROOFPARA
+
+PROOFPARA
+}
+
+PROOFBODY {
+PROOFPARA
+
+PROOFPARA
+
+PROOFPARA
+}
+
+PROOFBODY {
+PROOFPARA
+
+PROOFPARA
+
+PROOFPARA
+
+PROOFPARA
+}
+
+PROOFBODY {
+PROOFPARA
+
+PROOFPARA
+
+PROOFPARA
+
+PROOFPARA
+
+PROOFPARA
+}
+
+LONGPROOF PROOFPARA
+LONGPROOF+5 {
+LONGPROOF
+
+PROOFPARA
+}
+
+#############################################################
+###### Discussion
+#############################################################
+
+# including file should define DISCUSS and SDISCUSS
+SDISCUSSION SDISCUSS
+
+DISCUSSION+3 DISCUSS
+DISCUSSION+3 SDISCUSS
+DISCUSSION CONNECT DISCUSS
+DISCUSSION CONNECT SDISCUSS
+
+DISCUSSIONPARA SDISCUSSION DISCUSSION DISCUSSION
+DISCUSSIONPARA SDISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION 
+DISCUSSIONPARA SDISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION
+DISCUSSIONPARA SDISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION
+DISCUSSIONPARA SDISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION DISCUSSION 
+
+##############################################################
+###### Equations
+#############################################################
+
+CONST+2 0
+CONST+2 1
+CONST -1
+CONST e
+CONST \pi
+CONST 2
+CONST \sqrt{2}
+CONST \infty
+CONST -\infty
+CONST \aleph_0
+CONST i
+CONST \emptyset
+
+FVAR+10 VAR
+FVAR | VAR |
+FVAR \| VAR \|
+FVAR VAR ( VAR )
+
+REL+5 =
+REL+3 \ne
+REL+3 \le
+REL+3 \ge
+REL+3 <
+REL+3 >
+REL \sim
+REL \equiv
+REL \cong
+REL \subset
+REL \supset
+REL \to
+REL \in
+REL \ni
+
+SHORTEQ FVAR REL FVAR
+SHORTEQ FVAR REL CONST
+
+#############################################################################
+####### Vocabulary #######
+#############################################################################
+
+# Idea: randomly wrap these in \index for use in a book
+
+OBJECT+10 PROPLIST NOUN
+OBJECTS+10 PROPLIST NOUNS
+OBJECT+3 NOUN
+OBJECTS+3 NOUNS
+OBJECT PROPLIST NOUN equipped with a PROPLIST NOUN
+OBJECT PROPLIST NOUN acting PADVERB on a PROPLIST NOUN
+
+PROPPHRASE PROPERTY
+PROPPHRASE PROPLIST and PROPERTY
+
+PROPLIST+3 PROPERTY
+PROPLIST PROPERTY, PROPERTY
+PROPLIST PROPERTY, PROPERTY, PROPERTY
+
+PROPERTY+2 PADJECTIVE
+PROPERTY PADVERB PADJECTIVE
+
+PADVERB+3 ADVERB
+PADVERB PREFIX-ADVERB
+
+PADJECTIVE+3 ADJECTIVE
+PADJECTIVE PREFIX-ADJECTIVE
+
+ADJECTIVE $p$-adic
+ADJECTIVE $n$-dimensional
+ADJECTIVE Artinian
+ADJECTIVE Euclidean
+ADJECTIVE Gaussian
+ADJECTIVE Noetherian
+ADJECTIVE Riemannian
+ADJECTIVE abelian
+ADJECTIVE additive
+ADJECTIVE admissible
+ADJECTIVE affine
+ADJECTIVE algebraic
+ADJECTIVE arithmetic
+ADJECTIVE associative
+ADJECTIVE bijective
+ADJECTIVE bounded
+ADJECTIVE canonical
+ADJECTIVE characteristic
+ADJECTIVE closed
+ADJECTIVE commutative
+ADJECTIVE compact
+ADJECTIVE complete
+ADJECTIVE complex
+ADJECTIVE composite
+ADJECTIVE connected
+ADJECTIVE continuous
+ADJECTIVE contravariant
+ADJECTIVE convex
+ADJECTIVE countable
+ADJECTIVE covariant
+ADJECTIVE SIGN definite
+ADJECTIVE degenerate
+ADJECTIVE dependent
+ADJECTIVE differentiable
+ADJECTIVE elliptic
+ADJECTIVE embedded
+ADJECTIVE empty
+ADJECTIVE extrinsic
+ADJECTIVE finite
+ADJECTIVE free
+ADJECTIVE generic
+ADJECTIVE geometric
+ADJECTIVE holomorphic
+ADJECTIVE hyperbolic
+ADJECTIVE independent
+ADJECTIVE infinite
+ADJECTIVE injective
+ADJECTIVE integrable
+ADJECTIVE integral
+ADJECTIVE intrinsic
+ADJECTIVE invariant
+ADJECTIVE invertible
+ADJECTIVE irreducible
+ADJECTIVE isometric
+ADJECTIVE linear
+ADJECTIVE local
+ADJECTIVE maximal
+ADJECTIVE meager
+ADJECTIVE measurable
+ADJECTIVE meromorphic
+ADJECTIVE minimal
+ADJECTIVE multiplicative
+ADJECTIVE natural
+ADJECTIVE+3 SIGN
+ADJECTIVE normal
+ADJECTIVE null
+ADJECTIVE one-to-one
+ADJECTIVE onto
+ADJECTIVE open
+ADJECTIVE ordered
+ADJECTIVE orthogonal
+ADJECTIVE parabolic
+ADJECTIVE partial
+ADJECTIVE prime
+ADJECTIVE projective
+ADJECTIVE real
+ADJECTIVE reducible
+ADJECTIVE regular
+ADJECTIVE reversible
+ADJECTIVE separable
+ADJECTIVE singular
+ADJECTIVE smooth
+ADJECTIVE solvable
+ADJECTIVE stable
+ADJECTIVE standard
+ADJECTIVE stochastic
+ADJECTIVE surjective
+ADJECTIVE symmetric
+ADJECTIVE tangential
+ADJECTIVE trivial
+ADJECTIVE uncountable
+ADJECTIVE unique
+ADJECTIVE universal
+ADJECTIVE+25 FAMOUS
+
+SIGN positive
+SIGN negative
+SIGN nonnegative
+
+RELATED+1 TRELATED
+RELATED not TRELATED
+
+TRELATED isomorphic to
+TRELATED homeomorphic to
+TRELATED diffeomorphic to
+TRELATED equivalent to
+TRELATED comparable to
+TRELATED larger than
+TRELATED smaller than
+TRELATED equal to
+TRELATED dominated by
+TRELATED controlled by
+TRELATED greater than
+TRELATED less than
+TRELATED bounded by
+TRELATED distinct from
+TRELATED invariant under
+
+ADVERB algebraically
+ADVERB almost
+ADVERB almost everywhere
+ADVERB almost surely
+ADVERB analytically
+ADVERB canonically
+ADVERB combinatorially
+ADVERB compactly
+ADVERB completely
+ADVERB conditionally
+ADVERB continuously
+ADVERB countably
+ADVERB discretely
+ADVERB essentially
+ADVERB everywhere
+ADVERB freely
+ADVERB finitely
+ADVERB globally
+ADVERB linearly
+ADVERB locally
+ADVERB multiply
+ADVERB naturally
+ADVERB partially
+ADVERB pairwise
+ADVERB pointwise
+ADVERB simply
+ADVERB smoothly
+ADVERB stochastically
+ADVERB totally
+ADVERB trivially
+ADVERB unconditionally
+ADVERB universally
+
+PREFIX semi
+PREFIX quasi
+PREFIX pseudo
+PREFIX hyper
+PREFIX super
+PREFIX ultra
+PREFIX co
+PREFIX contra
+PREFIX non
+PREFIX anti
+PREFIX right
+PREFIX left
+PREFIX sub
+# subscripts and superscripts, etc, look stupid
+PREFIX $ONEVAR$
+
+SPACE vector
+SPACE topological
+SPACE measure
+SPACE probability
+SPACE FAMOUS
+
+NOUN SPACE space
+NOUNS SPACE spaces
+NOUN algebra
+NOUNS algebras
+NOUN arrow
+NOUNS arrows
+NOUNS categories
+NOUN category
+NOUN class
+NOUNS classes
+NOUN curve
+NOUNS curves
+NOUN domain
+NOUNS domains
+NOUN equation
+NOUNS equations
+NOUN element
+NOUNS elements
+NOUN factor
+NOUNS factors
+NOUN field
+NOUNS fields
+NOUN function
+NOUN functional
+NOUNS functionals
+NOUNS functions
+NOUN functor
+NOUNS functors
+NOUN graph
+NOUNS graphs
+NOUN group
+NOUNS groups
+NOUN homeomorphism
+NOUNS homeomorphisms
+NOUN homomorphism
+NOUNS homomorphisms
+NOUN hull
+NOUNS hulls
+NOUN ideal
+NOUNS ideals
+NOUNS isometries
+NOUN isometry
+NOUN isomorphism
+NOUNS isomorphisms
+NOUN line
+NOUNS lines
+NOUN manifold
+NOUNS manifolds
+NOUNS matrices
+NOUN matrix
+NOUN modulus
+NOUNS moduli
+NOUN monodromy
+NOUNS monodromies
+NOUN monoid
+NOUNS monoids
+NOUN morphism
+NOUNS morphisms
+NOUN number
+NOUNS numbers
+NOUN path
+NOUNS paths
+NOUN plane
+NOUNS planes
+NOUN point
+NOUNS points
+NOUN polytope
+NOUNS polytopes
+NOUN prime
+NOUNS primes
+NOUN random variable
+NOUNS random variables
+NOUN ring
+NOUNS rings
+NOUN scalar
+NOUNS scalars
+NOUN set
+NOUNS sets
+NOUNS subalegebras
+NOUN subalgebra
+NOUN subgroup
+NOUNS subgroups
+NOUN subring
+NOUNS subrings
+NOUN subset
+NOUNS subsets
+NOUN system
+NOUNS systems
+NOUNS topoi
+NOUN topos
+NOUN triangle
+NOUNS triangles
+NOUN vector
+NOUNS vectors
+
+
+THINGOF domain of
+THINGOF range of
+THINGOF image of
+THINGOF OBJECT associated to
+THINGOF derivative of
+THINGOF cardinality of
+THINGOF measure of
+THINGOF norm of
+
+METAVERB characterize
+METAVERBED characterized
+METAVERBING characterizing
+METANOUN characterization
+METAVERB classify
+METAVERBED classified
+METAVERBING classifying
+METANOUN classification
+METANOUN computation
+METAVERB compute
+METAVERBED computed
+METAVERBING computing
+METANOUN construction
+METAVERB construct
+METAVERBED constructed
+METAVERBING constructing
+METAVERB describe
+METAVERBED described
+METAVERBING describing
+METANOUN description
+#METAVERB prove
+#METAVERBED proved
+#METAVERBING proving
+#METANOUN proof
+#METAVERB establish
+#METAVERBED established
+#METAVERBING establishing
+METAVERB study
+METAVERBED studied
+METAVERBING studying
+METAVERB derive
+METAVERBED derived
+METAVERBING deriving
+METANOUN derivation
+METAVERB examine
+METAVERBED examined
+METAVERBING examining
+METANOUN derivation
+METAVERB extend
+METAVERBED extended
+METAVERBING extending
+METANOUN extension
+#METAVERB disprove
+#METAVERBED disproved
+#METAVERBING disproving
+#METANOUN disproof
+
+PROPNOUN continuity
+PROPNOUN+5 existence
+PROPNOUN+5 uniqueness
+PROPNOUN solvability
+PROPNOUN finiteness
+PROPNOUN connectedness
+PROPNOUN structure
+PROPNOUN compactness
+PROPNOUN completeness
+PROPNOUN regularity
+PROPNOUN splitting
+PROPNOUN convergence
+PROPNOUN stability
+PROPNOUN admissibility
+PROPNOUN associativity
+PROPNOUN convexity
+PROPNOUN countability
+PROPNOUN degeneracy
+#PROPNOUN geometry
+PROPNOUN invariance
+PROPNOUN integrability
+PROPNOUN smoothness
+PROPNOUN invertibility
+PROPNOUN reversibility
+PROPNOUN ellipticity
+PROPNOUN naturality
+PROPNOUN minimality
+PROPNOUN maximality
+PROPNOUN locality
+PROPNOUN measurability
+PROPNOUN positivity
+PROPNOUN negativity
+PROPNOUN reducibility
+PROPNOUN separability
+PROPNOUN injectivity
+PROPNOUN surjectivity
+PROPNOUN uncountability
+
+CONCEPT the PROPNOUN of OBJECTS
+CONCEPT OBJECTS
+CONCEPT problems in AREA
+CONCEPT AREA
+CONCEPT FAMOUSPOS conjecture
+CONCEPT the METANOUN of OBJECTS
+CONCEPT PROPNOUN
+CONCEPT questions of PROPNOUN
+CONCEPT an example of FAMOUS
+CONCEPT PROPNOUN methods
+
+LOWRVAR a
+LOWRVAR b
+LOWRVAR c
+LOWRVAR d
+LOWRVAR e
+LOWRVAR f
+LOWRVAR g
+LOWRVAR h
+LOWRVAR i
+LOWRVAR j
+LOWRVAR k
+LOWRVAR l
+LOWRVAR \ell
+LOWRVAR m
+LOWRVAR n
+LOWRVAR p
+LOWRVAR q
+LOWRVAR r
+LOWRVAR s
+LOWRVAR t
+LOWRVAR u
+LOWRVAR v
+LOWRVAR w
+LOWRVAR x
+LOWRVAR y
+LOWRVAR z
+LOWGVAR \alpha
+LOWGVAR \beta
+LOWGVAR \gamma
+LOWGVAR \delta
+LOWGVAR \epsilon
+LOWGVAR \varepsilon
+LOWGVAR \zeta
+LOWGVAR \eta
+LOWGVAR \theta
+LOWGVAR \iota
+LOWGVAR \kappa
+LOWGVAR \lambda
+LOWGVAR \mu
+LOWGVAR \nu
+LOWGVAR \xi
+LOWGVAR \pi
+LOWGVAR \rho
+LOWGVAR \sigma
+LOWGVAR \tau
+LOWGVAR \phi
+LOWGVAR \varphi
+LOWGVAR \chi
+LOWGVAR \psi
+LOWGVAR \omega
+
+UPRVAR A
+UPRVAR B
+UPRVAR C
+UPRVAR D
+UPRVAR E
+UPRVAR F
+UPRVAR G
+UPRVAR H
+UPRVAR I
+UPRVAR J
+UPRVAR K
+UPRVAR L
+UPRVAR M
+UPRVAR N
+UPRVAR O
+UPRVAR P
+UPRVAR Q
+UPRVAR R
+UPRVAR S
+UPRVAR T
+UPRVAR U
+UPRVAR V
+UPRVAR W
+UPRVAR X
+UPRVAR Y
+UPRVAR Z
+UPGVAR \Gamma
+UPGVAR \Delta
+UPGVAR \Theta
+UPGVAR \Lambda
+UPGVAR \Xi
+UPGVAR \Sigma
+UPGVAR \Phi
+UPGVAR \Psi
+UPGVAR \Omega
+
+UPVAR+3 UPRVAR
+UPVAR UPGVAR
+
+LOWVAR LOWRVAR
+LOWVAR LOWGVAR
+
+ONEVAR+5 UPVAR
+ONEVAR+5 LOWVAR
+# Extra brackets for extra protection when used in bibtex
+# bibtex will change $\mathcal{A}$ to $\mathcal{a} 
+# but leaves $\mathcal{{A}}$ alone.
+# Still doesn't quite work.  See BUGS.
+ONEVAR \mathbf{{LOWRVAR}}
+ONEVAR \mathfrak{{LOWRVAR}}
+ONEVAR \mathcal{{UPRVAR}}
+ONEVAR \mathscr{{UPRVAR}}
+
+VAR+10 ONEVAR
+VAR {ONEVAR_{ONEVAR}}
+VAR {ONEVAR_{ONEVAR,ONEVAR}}
+VAR {ONEVAR^{(ONEVAR)}}
+VAR ONEVAR'
+VAR ONEVAR''
+VAR \hat{ONEVAR}
+VAR \tilde{ONEVAR}
+VAR \bar{ONEVAR}
+
+###########################################################
+##### Equations
+###########################################################
+
+EXPRA FVAR
+EXPRA CONST
+
+BINOP +
+BINOP -
+BINOP \pm
+BINOP \cup
+BINOP \cap
+BINOP \cdot
+BINOP \wedge
+BINOP \vee
+BINOP \times
+
+QUANT \forall
+QUANT \exists
+
+EXPRB EXPRA BINOP EXPRA
+EXPRB -EXPRA
+EXPRB EXPRA^{NONZ}
+EXPRB EXPRA^{-NONZ}
+EXPRB+2 EXPRA
+EXPRB EXPRA EXPRA
+EXPRB \frac{1}{EXPRA}
+
+FUNC+2 \exp
+FUNC \sin
+FUNC \cos
+FUNC \tan
+FUNC \sinh
+FUNC \cosh
+FUNC \tanh
+FUNC+2 \log
+FUNC+6 VAR
+
+#EXPRC EXPRB BINOP EXPRB
+EXPRC FUNC \left( EXPRB \right)
+EXPRC VAR \left( EXPRB, EXPRB \right)
+EXPRC VAR \left( EXPRB, \dots, EXPRB \right)
+EXPRC FUNC^{-1} \left( EXPRB \right)
+EXPRC+1 EXPRB
+EXPRC \overline{EXPRB}
+
+LIMOP \lim
+LIMOP \limsup
+LIMOP \liminf
+LIMOP \sup
+LIMOP \inf
+LIMOP \max
+LIMOP \min
+LIMOP \varinjlim
+LIMOP \varprojlim
+
+SUMOP+2 \sum
+SUMOP \prod
+SUMOP+2 \bigcup
+SUMOP+2 \bigcap
+SUMOP \bigoplus
+SUMOP \bigotimes
+SUMOP \coprod
+
+INTOP+6 \int
+INTOP \iint
+INTOP \iiint
+INTOP \oint
+
+BIGOP LIMOP
+BIGOP LIMOP_{VAR \to CONST} 
+BIGOP SUMOP 
+BIGOP SUMOP_{VAR \in VAR} 
+BIGOP SUMOP_{VAR = CONST}^{CONST} 
+
+INTLIM INTOP
+INTLIM INTOP_{VAR}
+INTLIM INTOP_{CONST}^{CONST}
+
+
+EXPRD+3 BIGOP EXPRC
+EXPRD+2 INTLIM EXPRC \,d VAR
+EXPRD BIGOP INTLIM EXPRC \,d VAR
+EXPRD INTLIM BIGOP EXPRC \,d VAR
+#EXPRD INTLIM INTLIM EXPRC \,d VAR \,d VAR
+EXPRD+2 \frac{EXPRC}{EXPRC}
+EXPRD EXPRC BINOP EXPRC
+#EXPRD EXPRC BINOP EXPRC BINOP EXPRC
+EXPRD+1 EXPRC
+
+EXPRE EXPRD BINOP EXPRC
+EXPRE EXPRD BINOP \dots BINOP EXPRC 
+EXPRE \left\{ EXPRB \colon MEDEQ \right\}
+EXPRE+1 EXPRD
+
+MEDEQ EXPRC REL EXPRD
+
+LONGEQ+3 EXPRC REL EXPRE
+LONGEQ EXPRC REL \begin{cases} EXPRD, & SHORTEQ \\ EXPRD, & SHORTEQ \end{cases}
+
+#TESTPARA DISPEQ.
+
+# Important that this be on one line so prettyprint can detect "DISPEQ."
+DISPEQ $$MEDEQ$$
+DISPEQ $$LONGEQ$$
+DISPEQ \begin{align*} EXPRC & REL EXPRE \\ & REL EXPRE \end{align*}
+DISPEQ \begin{align*} EXPRC & REL EXPRE \\ & REL EXPRE \\ & REL EXPRE \end{align*}
+DISPEQ \begin{align*} EXPRC & REL EXPRE \\ & REL EXPRE \\ & REL EXPRE \\ & REL EXPRE \end{align*}
+
+INLINEEQ $SHORTEQ$
+INLINEEQ $EXPRB REL EXPRC$
+
+###########################################################
+##### List of famous mathematicians, taken from
+##### http://fabpedigree.com/james/greatmm.htm
+##### Used by permission.
+###########################################################
+
+FAMOUS+10 FAMOUSLAST
+FAMOUS FAMOUSLAST--FAMOUSLAST
+
+FAMOUSPOS FAMOUSLAST's
+
+FAMOUSLAST Abel
+FAMOUSLAST Archimedes
+FAMOUSLAST Artin
+FAMOUSLAST Atiyah
+FAMOUSLAST Banach
+FAMOUSLAST Beltrami
+FAMOUSLAST Bernoulli
+FAMOUSLAST Boole
+FAMOUSLAST Borel
+FAMOUSLAST Brahmagupta
+FAMOUSLAST Brouwer
+FAMOUSLAST Cantor
+FAMOUSLAST Cardano
+FAMOUSLAST Cartan
+FAMOUSLAST Cauchy
+FAMOUSLAST Cavalieri
+FAMOUSLAST Cayley
+FAMOUSLAST Chebyshev
+FAMOUSLAST Chern
+FAMOUSLAST Clairaut
+FAMOUSLAST Clifford
+FAMOUSLAST Conway
+FAMOUSLAST D\'escartes
+FAMOUSLAST Darboux
+FAMOUSLAST Dedekind
+FAMOUSLAST Deligne
+FAMOUSLAST Desargues
+FAMOUSLAST Dirichlet
+FAMOUSLAST Einstein
+FAMOUSLAST Eisenstein
+FAMOUSLAST Eratosthenes
+FAMOUSLAST Erd\H{o}s
+FAMOUSLAST Euclid
+FAMOUSLAST Eudoxus
+FAMOUSLAST Euler
+FAMOUSLAST Fermat
+FAMOUSLAST Fibonacci
+FAMOUSLAST Fourier
+FAMOUSLAST Fr\'echet
+FAMOUSLAST Frobenius
+FAMOUSLAST G\"odel
+FAMOUSLAST Galileo
+FAMOUSLAST Galois
+FAMOUSLAST Gauss
+FAMOUSLAST Germain
+FAMOUSLAST Grassmann
+FAMOUSLAST Green
+FAMOUSLAST Grothendieck
+FAMOUSLAST Hadamard
+FAMOUSLAST Hamilton
+FAMOUSLAST Hardy
+FAMOUSLAST Hausdorff
+FAMOUSLAST Heaviside
+FAMOUSLAST Hermite
+FAMOUSLAST Hilbert
+FAMOUSLAST Hippocrates
+FAMOUSLAST Huygens
+FAMOUSLAST Jacobi
+FAMOUSLAST Jordan
+FAMOUSLAST Kepler
+FAMOUSLAST Klein
+FAMOUSLAST Kolmogorov
+FAMOUSLAST Kovalevskaya
+FAMOUSLAST Kronecker
+FAMOUSLAST Kummer
+FAMOUSLAST Lagrange
+FAMOUSLAST Lambert
+FAMOUSLAST Landau
+FAMOUSLAST Laplace
+FAMOUSLAST Lebesgue
+FAMOUSLAST Legendre
+FAMOUSLAST Leibniz
+FAMOUSLAST Levi-Civita
+FAMOUSLAST Lie
+FAMOUSLAST Lindemann
+FAMOUSLAST Liouville
+FAMOUSLAST Littlewood
+FAMOUSLAST Lobachevsky
+FAMOUSLAST M\"obius
+FAMOUSLAST Maclaurin
+FAMOUSLAST Markov
+FAMOUSLAST Maxwell
+FAMOUSLAST Milnor
+FAMOUSLAST Minkowski
+FAMOUSLAST Monge
+FAMOUSLAST Napier
+FAMOUSLAST Newton
+FAMOUSLAST Noether
+FAMOUSLAST P\'olya
+FAMOUSLAST Pappus
+FAMOUSLAST Pascal
+FAMOUSLAST Peano
+FAMOUSLAST Perelman
+FAMOUSLAST Poincar\'e
+FAMOUSLAST Poisson
+FAMOUSLAST Poncelet
+FAMOUSLAST Pythagoras
+FAMOUSLAST Ramanujan
+FAMOUSLAST Riemann
+FAMOUSLAST Russell
+FAMOUSLAST Selberg
+FAMOUSLAST Serre
+FAMOUSLAST Shannon
+FAMOUSLAST Siegel
+FAMOUSLAST Smale
+FAMOUSLAST Steiner
+FAMOUSLAST Sylvester
+FAMOUSLAST Tate
+FAMOUSLAST Taylor
+FAMOUSLAST Thompson
+FAMOUSLAST Torricelli
+FAMOUSLAST Turing
+FAMOUSLAST Volterra
+FAMOUSLAST Weierstrass
+FAMOUSLAST Weil
+FAMOUSLAST Weyl
+FAMOUSLAST Wiener
+FAMOUSLAST Wiles
+FAMOUSLAST d'Alembert
+FAMOUSLAST de Moivre
+FAMOUSLAST von Neumann
+
+##############################################################
+######## Areas of mathematics
+##############################################################
+
+AREA AREANOUN
+AREA+7 AREAADJ AREANOUN
+AREA AREAMOD AREANOUN
+AREA AREAMOD AREAADJ AREANOUN
+
+AREAMOD classical
+AREAMOD elementary
+AREAMOD advanced
+AREAMOD higher
+AREAMOD introductory
+AREAMOD theoretical
+AREAMOD pure
+AREAMOD applied
+AREAMOD modern
+
+#AREAADJ na\"{\i}ve # just too much of a pain to prettyprint correctly
+AREAADJ $p$-adic
+AREAADJ Euclidean
+AREAADJ Galois
+AREAADJ Riemannian
+AREAADJ absolute
+AREAADJ abstract
+AREAADJ algebraic
+AREAADJ analytic
+AREAADJ arithmetic
+AREAADJ axiomatic
+AREAADJ commutative
+AREAADJ complex
+AREAADJ computational
+AREAADJ constructive
+AREAADJ concrete
+AREAADJ convex
+AREAADJ descriptive
+AREAADJ differential
+AREAADJ discrete
+AREAADJ elliptic
+AREAADJ formal
+AREAADJ fuzzy
+AREAADJ general
+AREAADJ geometric
+AREAADJ global
+AREAADJ harmonic
+AREAADJ homological
+AREAADJ hyperbolic
+AREAADJ integral
+AREAADJ linear
+AREAADJ local
+AREAADJ microlocal
+AREAADJ non-commutative
+AREAADJ non-linear
+AREAADJ non-standard
+AREAADJ numerical
+AREAADJ parabolic
+AREAADJ probabilistic
+AREAADJ quantum
+AREAADJ rational
+AREAADJ real
+AREAADJ singular
+AREAADJ spectral
+AREAADJ statistical
+AREAADJ stochastic
+AREAADJ symbolic
+AREAADJ topological
+AREAADJ tropical
+AREAADJ universal
+
+AREANOUN Galois theory
+AREANOUN K-theory
+AREANOUN Lie theory
+AREANOUN PDE
+AREANOUN algebra
+AREANOUN analysis
+AREANOUN arithmetic
+AREANOUN calculus
+AREANOUN category theory
+AREANOUN combinatorics
+AREANOUN dynamics
+AREANOUN geometry
+AREANOUN graph theory
+AREANOUN group theory
+AREANOUN knot theory
+AREANOUN logic
+AREANOUN measure theory
+AREANOUN mechanics
+AREANOUN model theory
+AREANOUN number theory
+AREANOUN operator theory
+AREANOUN potential theory
+AREANOUN probability
+AREANOUN representation theory
+AREANOUN set theory
+AREANOUN topology
+
+###################################################
+###### Titles
+###################################################
+
+# Article titles
+ATITLE OBJECTS of OBJECTS and CONCEPT
+ATITLE on the PROPNOUN of OBJECTS
+ATITLE PROPERTY PROPNOUN for OBJECTS
+ATITLE on the METANOUN of OBJECTS
+ATITLE OBJECTS and CONCEPT
+ATITLE PROPNOUN in AREA
+ATITLE some PROPNOUN results for OBJECTS
+ATITLE OBJECTS for a OBJECT
+ATITLE OBJECTS over OBJECTS
+ATITLE OBJECTS and AREA
+ATITLE PROPNOUN methods in AREA
+ATITLE on CONCEPT
+ATITLE CONCEPT
+
+# Book titles
+BTITLE+5 AREA
+BTITLE introduction to AREA
+BTITLE a course in AREA
+BTITLE a first course in AREA
+BTITLE+3: AREA: theory and applications
+BTITLE a beginner's guide to AREA
+BTITLE AREA with applications to AREA
+
+JNAME Journal
+JNAME Bulletin
+JNAME Archives
+JNAME Proceedings
+JNAME Transactions
+JNAME Notices
+JNAME Annals
+
+# Journal titles
+JTITLE+3 Journal of AREA
+JTITLE PLACEADJ Mathematical JNAME
+JTITLE JNAME of the PLACEADJ Mathematical Society
+JTITLE PLACEADJ Journal of AREA
+
+# From http://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_of_place_names
+PLACEADJ American
+PLACEADJ African
+PLACEADJ Antarctic
+PLACEADJ Asian
+PLACEADJ Middle Eastern
+PLACEADJ Australasian
+PLACEADJ Australian
+PLACEADJ Eurasian
+PLACEADJ European
+PLACEADJ North American
+PLACEADJ Central American
+PLACEADJ Oceanian
+PLACEADJ South American
+PLACEADJ Afghan
+PLACEADJ Albanian
+PLACEADJ Algerian
+PLACEADJ Andorran
+PLACEADJ Angolan
+PLACEADJ Argentine
+PLACEADJ Armenian
+PLACEADJ Austrian
+PLACEADJ Azerbaijani
+PLACEADJ Bahamian
+PLACEADJ Bahraini
+PLACEADJ Bangladeshi
+PLACEADJ Belarusian
+PLACEADJ Belgian
+PLACEADJ Bhutanese
+PLACEADJ Bolivian
+PLACEADJ Bosnian
+PLACEADJ Brazilian
+PLACEADJ Bulgarian
+PLACEADJ Burmese
+PLACEADJ Burundian
+PLACEADJ Cambodian
+PLACEADJ Cameroonian
+PLACEADJ Canadian
+PLACEADJ Chilean
+PLACEADJ Chinese
+PLACEADJ Colombian
+PLACEADJ Congolese
+PLACEADJ Costa Rican
+PLACEADJ Croatian
+PLACEADJ Cuban
+PLACEADJ Czech
+PLACEADJ Danish
+PLACEADJ Timorese
+PLACEADJ Ecuadorian
+PLACEADJ Egyptian
+PLACEADJ Salvadoran
+PLACEADJ English
+PLACEADJ Eritrean
+PLACEADJ Estonian
+PLACEADJ Ethiopian
+PLACEADJ Fijian
+PLACEADJ Finnish
+PLACEADJ French
+PLACEADJ French Polynesian
+PLACEADJ Gabonese
+PLACEADJ Gambian
+PLACEADJ Georgian
+PLACEADJ German
+PLACEADJ Ghanaian
+PLACEADJ British
+PLACEADJ Greek
+PLACEADJ Greenlandic
+PLACEADJ Grenadian
+PLACEADJ Guamanian
+PLACEADJ Guatemalan
+PLACEADJ Guinean
+PLACEADJ Guyanese
+PLACEADJ Haitian
+PLACEADJ Honduran
+PLACEADJ Hong Kong
+PLACEADJ Hungarian
+PLACEADJ Icelandic
+PLACEADJ Indian
+PLACEADJ Indonesian
+PLACEADJ Iranian
+PLACEADJ Iraqi
+PLACEADJ Irish
+PLACEADJ Manx
+PLACEADJ Israeli
+PLACEADJ Italian
+PLACEADJ Jamaican
+PLACEADJ Japanese
+PLACEADJ Jordanian
+PLACEADJ Kazakh
+PLACEADJ Kenyan
+PLACEADJ North Korean
+PLACEADJ South Korean
+PLACEADJ Kosovar
+PLACEADJ Kuwaiti
+PLACEADJ Kyrgyzstani
+PLACEADJ Laotian
+PLACEADJ Latvian
+PLACEADJ Lebanese
+PLACEADJ Liberian
+PLACEADJ Libyan
+PLACEADJ Liechtenstein
+PLACEADJ Lithuanian
+PLACEADJ Luxembourg
+PLACEADJ Macedonian
+PLACEADJ Malawian
+PLACEADJ Malaysian
+PLACEADJ Maldivian
+PLACEADJ Malian
+PLACEADJ Maltese
+PLACEADJ Mauritanian
+PLACEADJ Mauritian
+PLACEADJ Mexican
+PLACEADJ Moldovan
+PLACEADJ Mongolian
+PLACEADJ Moroccan
+PLACEADJ Namibian
+PLACEADJ Nepali
+PLACEADJ Dutch
+PLACEADJ New Zealand
+PLACEADJ Nicaraguan
+PLACEADJ Nigerian
+PLACEADJ Norwegian
+PLACEADJ Pakistani
+PLACEADJ Palestinian
+PLACEADJ Panamanian
+PLACEADJ Paraguayan
+PLACEADJ Peruvian
+PLACEADJ Philippine
+PLACEADJ Polish
+PLACEADJ Portuguese
+PLACEADJ Puerto Rican
+PLACEADJ Qatari
+PLACEADJ Romanian
+PLACEADJ Russian
+PLACEADJ Rwandan
+PLACEADJ Samoan
+PLACEADJ Saudi
+PLACEADJ Scottish
+PLACEADJ Senegalese
+PLACEADJ Serbian
+PLACEADJ Singapore
+PLACEADJ Slovak
+PLACEADJ Slovenian
+PLACEADJ Somali
+PLACEADJ South African
+PLACEADJ South Sudanese
+PLACEADJ Spanish
+PLACEADJ Sri Lankan
+PLACEADJ Sudanese
+PLACEADJ Surinamese
+PLACEADJ Swazi
+PLACEADJ Swedish
+PLACEADJ Swiss
+PLACEADJ Syrian
+PLACEADJ Taiwanese
+PLACEADJ Tajikistani
+PLACEADJ Tanzanian
+PLACEADJ Thai
+PLACEADJ Tongan
+PLACEADJ Tunisian
+PLACEADJ Turkish
+PLACEADJ Turkmen
+PLACEADJ Tuvaluan
+PLACEADJ Ugandan
+PLACEADJ Ukrainian
+PLACEADJ U.S.
+PLACEADJ Uruguayan
+PLACEADJ Uzbekistani
+PLACEADJ Venezuelan
+PLACEADJ Vietnamese
+PLACEADJ Welsh
+PLACEADJ Yemeni
+PLACEADJ Zambian
+PLACEADJ Zimbabwean
+
+FAMOUS_AUTHOR INITIALS FAMOUSLAST
+
+GENERIC_AUTHOR INITIALS GENERIC_LASTNAME
+
+AUTHOR+10 FAMOUS_AUTHOR
+AUTHOR+20 GENERIC_AUTHOR
+# One of the present authors
+AUTHOR+4 AUTHOR_NAME
+
+INITIALS+7 INITIAL.
+INITIALS INITIAL. INITIAL.
+INITIAL A
+INITIAL B
+INITIAL C
+INITIAL D
+INITIAL E
+INITIAL F
+INITIAL G
+INITIAL H
+INITIAL I
+INITIAL J
+INITIAL K
+INITIAL L
+INITIAL M
+INITIAL N
+INITIAL O
+INITIAL P
+INITIAL Q
+INITIAL R
+INITIAL S
+INITIAL T
+INITIAL U
+INITIAL V
+INITIAL W
+INITIAL X
+INITIAL Y
+INITIAL Z
+GENERIC_LASTNAME Smith
+GENERIC_LASTNAME Johnson
+GENERIC_LASTNAME Williams
+GENERIC_LASTNAME Jones
+GENERIC_LASTNAME Brown
+GENERIC_LASTNAME Davis
+GENERIC_LASTNAME Miller
+GENERIC_LASTNAME Wilson
+GENERIC_LASTNAME Moore
+GENERIC_LASTNAME Taylor
+GENERIC_LASTNAME Anderson
+GENERIC_LASTNAME Thomas
+GENERIC_LASTNAME Jackson
+GENERIC_LASTNAME White
+GENERIC_LASTNAME Harris
+GENERIC_LASTNAME Martin
+GENERIC_LASTNAME Thompson
+GENERIC_LASTNAME Garcia
+GENERIC_LASTNAME Martinez
+GENERIC_LASTNAME Robinson
+GENERIC_LASTNAME Zhao
+GENERIC_LASTNAME Zhou
+GENERIC_LASTNAME Qian
+GENERIC_LASTNAME Wu
+GENERIC_LASTNAME Sun
+GENERIC_LASTNAME Zheng
+GENERIC_LASTNAME Li
+GENERIC_LASTNAME Lee
+GENERIC_LASTNAME Wang
+GENERIC_LASTNAME Sato
+GENERIC_LASTNAME Sasaki
+GENERIC_LASTNAME Suzuki
+GENERIC_LASTNAME Takahashi
+GENERIC_LASTNAME Watanabe
+GENERIC_LASTNAME Kobayashi
+GENERIC_LASTNAME Maruyama
+GENERIC_LASTNAME Ito
+GENERIC_LASTNAME Raman
+GENERIC_LASTNAME Bhabha
+GENERIC_LASTNAME Bose
+GENERIC_LASTNAME Gupta
+GENERIC_LASTNAME Nehru
+GENERIC_LASTNAME Shastri
+GENERIC_LASTNAME Kumar
+
+PUBLISHER Springer
+PUBLISHER Birkh\"auser
+PUBLISHER Wiley
+PUBLISHER Elsevier
+PUBLISHER McGraw Hill
+PUBLISHER Cambridge University Press
+PUBLISHER Oxford University Press
+PUBLISHER De Gruyter
+PUBLISHER Prentice Hall
+PUBLISHER PLACEADJ Mathematical Society
+
+
+#############################################################################
+######## Citations ########
+#############################################################################
+
+CITATION CITATION_MULTI
+
+CITATION_SOMETIMES+4 CITATION
+CITATION_SOMETIMES+80
+CITATION_NEW cite:CITATIONLABEL+
+CITATION_OLD cite:CITATIONLABEL#
+CITATION_SINGLE CITATION_NEW
+CITATION_SINGLE CITATION_OLD
+CITATION_MULTI+20 \cite{CITATION_SINGLE}
+CITATION_MULTI+2 \cite{CITATION_SINGLE,CITATION_NEW}
+CITATION_MULTI \cite{CITATION_NEW,CITATION_SINGLE,CITATION_NEW}
+CITATIONLABEL\+
+CITATIONLABEL\#
+
+NOCITATION \nocite{CITATION_NEW}
+
+CITE_AUTHOR_LIST+6 AUTHOR 
+CITE_AUTHOR_LIST+8 AUTHOR and AUTHOR
+CITE_AUTHOR_LIST+3 AUTHOR and AUTHOR and AUTHOR
+#CITE_AUTHOR_LIST!
+
+CITE_MONTH jan
+CITE_MONTH feb
+CITE_MONTH mar
+CITE_MONTH apr
+CITE_MONTH may
+CITE_MONTH jun
+CITE_MONTH jul
+CITE_MONTH aug
+CITE_MONTH sep
+CITE_MONTH oct
+CITE_MONTH nov
+CITE_MONTH dec
+
+SCI_YEAR	1918
+SCI_YEAR	1935
+SCI_YEAR	1948
+SCI_YEAR	1953
+SCI_YEAR	1961
+SCI_YEAR	1967
+SCI_YEAR	1970
+SCI_YEAR	1977
+SCI_YEAR	1980
+SCI_YEAR	1986
+SCI_YEAR	1989
+SCI_YEAR	1993
+SCI_YEAR	1995
+SCI_YEAR	1999
+SCI_YEAR	2001
+SCI_YEAR	2004
+SCI_YEAR	2006
+SCI_YEAR	2007
+SCI_YEAR	2008
+SCI_YEAR	2009
+SCI_YEAR	2010
+SCI_YEAR	2011
+CITE_YEAR SCI_YEAR
+CITE_YEAR+10 199DIGIT
+CITE_YEAR+10 200DIGIT
+CITE_YEAR 2010
+CITE_YEAR 2011
+
+CITE_VOLUME SMALL_NUM
+
+CITE_PAGES 1--1DIGIT
+CITE_PAGES 20--24
+CITE_PAGES 4DIGIT--5DIGIT
+CITE_PAGES 8DIGIT--10DIGIT
+CITE_PAGES 7DIGIT--9DIGIT
+CITE_PAGES 5DIGIT--6DIGIT
+CITE_PAGES 7DIGIT--8DIGIT
+CITE_PAGES 15DIGIT--19DIGIT
+CITE_PAGES 1--SMALL_NUM
+CITE_PAGES 1--MED_NUM
+CITE_PAGES 20DIGIT--2NONZDIGIT
+CITE_PAGES 30DIGIT--3NONZDIGIT
+CITE_PAGES 520--52NONZ
+CITE_PAGES 140DIGIT--14NONZDIGIT
+
+NONZ 1
+NONZ 2
+NONZ 3
+NONZ 4
+NONZ 5
+NONZ 6
+NONZ 7
+NONZ 8
+NONZ 9
+DIGIT+9	NONZ
+DIGIT 	0
+
+
+POWER_OF_TWO 2
+POWER_OF_TWO 4
+POWER_OF_TWO 8
+POWER_OF_TWO 16
+POWER_OF_TWO 32
+POWER_OF_TWO 64
+POWER_OF_TWO 128
+
+MED_NUM NONZDIGIT
+MED_NUM NONZDIGITDIGIT
+MED_NUM NONZDIGITDIGITDIGIT
+
+SMALL_NUM+3 DIGIT
+SMALL_NUM+8 NONZDIGIT
+SMALL_NUM NONZDIGITDIGIT
+
+CITE_TRNUM MED_NUM-MED_NUM-MED_NUM
+CITE_TRNUM MED_NUM/MED_NUM
+CITE_TRNUM MED_NUM
+CITE_TRNUM MED_NUM-MED_NUM
+
+# BIBTEX_ENTRY+10 {
+
+#  @InProceedings{CITE_LABEL_GIVEN,
+#   author = {CITE_AUTHOR_LIST},
+#   title = {ATITLE},
+#   booktitle = {CITE_CONF},
+#   month = CITE_MONTH,
+#   year = CITE_YEAR}
+
+# }
+
+BIBTEX_ENTRY+2 {
+
+ @article{CITE_LABEL_GIVEN,
+  author = {CITE_AUTHOR_LIST},
+  title = {ATITLE},
+  journal = {JTITLE},
+  month = CITE_MONTH,
+  year = CITE_YEAR,
+  volume = CITE_VOLUME,
+  pages = {CITE_PAGES}}
+
+}
+
+BIBTEX_ENTRY {
+@book {CITE_LABEL_GIVEN,
+    author = {CITE_AUTHOR_LIST},
+     title = {BTITLE},
+     publisher = {PUBLISHER},
+      year = {CITE_YEAR},
+     pages = {MED_NUM}}
+}
+
+# BIBTEX_ENTRY {
+
+#  @techreport{CITE_LABEL_GIVEN,
+#   author = {CITE_AUTHOR_LIST},
+#   title = {SCI_TITLE_X},
+#   institution = {CITE_INST},
+#   number = {CITE_TRNUM},
+#   month = CITE_MONTH,
+#   year = CITE_YEAR}
+
+# }
