@@ -1,19 +1,26 @@
 package scigen;
 
-#    This file is part of SCIgen.
+#    scigen.pl: SCIgen grammar engine
 #
-#    SCIgen is free software; you can redistribute it and/or modify
+#    Copyright (C) 2012  Nathaniel Eldredge
+#    This file is part of Mathgen.
+#
+#    Adapted from scigen.pl from SCIgen
+#    (http://pdos.csail.mit.edu/scigen/).  Portions may be copyright
+#    (C) the authors of SCIgen.
+#
+#    Mathgen is free software; you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation; either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    SCIgen is distributed in the hope that it will be useful,
+#    Mathgen is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with SCIgen; if not, write to the Free Software
+#    along with Mathgen; if not, write to the Free Software
 #    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 

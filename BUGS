@@ -1,3 +1,5 @@
+- Lots of overfull hboxes.
+
 - If an article title gets $\mathcal{A}$ in it (from PREFIX), bibtex
   lowercases it to $\mathcal{a}$ which renders as a funny character.
   $\mathcal{{A}}$ works ok.  However enbracket makes it

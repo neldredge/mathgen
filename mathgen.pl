@@ -1,5 +1,8 @@
 #!/usr/bin/perl -w
 
+#    mathgen.pl: main driver code
+#
+#    Copyright (C) 2012  Nathaniel Eldredge
 #    This file is part of Mathgen.
 #
 #    Mathgen is free software; you can redistribute it and/or modify
