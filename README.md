@@ -3,9 +3,9 @@ Mathgen
 
 Mathgen is a tool to randomly generate fake mathematics papers.
 
-Online version: http://thatsmathematics.com/mathgen/
-Blog page: http://thatsmathematics.com/blog/mathgen/
-Source code (Github): https://github.com/neldredge/mathgen
+- [Online version](http://thatsmathematics.com/mathgen/)
+- [Blog page](http://thatsmathematics.com/blog/mathgen/)
+- [Source code (Github)](https://github.com/neldredge/mathgen)
 
 
 Prerequisites
