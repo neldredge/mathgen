@@ -31,7 +31,7 @@ You will need the following LaTeX packages:
 - natbib
 - truncate
 
-If you want to produce books (--product=book), you will need the
+If you want to produce books `--product=book`, you will need the
 following additional LaTeX packages:
 
 - geometry
@@ -44,20 +44,20 @@ following additional LaTeX packages:
 - url
 - tocbibind
 
-You will also need the `makeindex' program.
+You will also need the `makeindex` program.
 
 
 Running
 =======
 
-The main Mathgen program is `mathgen.pl'.  For a summary of options,
+The main Mathgen program is `mathgen.pl`.  For a summary of options,
 run:
 
-$ ./mathgen.pl --help
+    $ ./mathgen.pl --help
 
-The current default behavior, if `mathgen.pl' is run without options,
+The current default behavior, if `mathgen.pl` is run without options,
 is to generate an article with one randomly generated author and view
-the output with `evince'.
+the output with `evince`.
 
 
 Examples
@@ -66,23 +66,23 @@ Examples
 Generate an article with author "J. Doe" and view the output with
 xpdf:
 
-$ ./mathgen.pl --product=article --mode=view --author="J. Doe" --viewer=xpdf
+    $ ./mathgen.pl --product=article --mode=view --author="J. Doe" --viewer=xpdf
 
-The same, but write the PDF to `mypaper.pdf':
+The same, but write the PDF to `mypaper.pdf`:
 
-$ ./mathgen.pl --product=article --mode=pdf --author="J. Doe" --output=mypaper.pdf
+    $ ./mathgen.pl --product=article --mode=pdf --author="J. Doe" --output=mypaper.pdf
 
 Give yourself a famous collaborator, and create a zip file with the
 source and PDF:
 
-$ ./mathgen.pl --product=article --mode=zip --output=mypaper.zip --author="J. Doe" --author="P. Erd\H{o}s"
+    $ ./mathgen.pl --product=article --mode=zip --output=mypaper.zip --author="J. Doe" --author="P. Erd\H{o}s"
 
 Tip: To randomly generate an author's name, you can use
-`--author=FAMOUS_AUTHOR' or `--author=GENERIC_AUTHOR'.
+`--author=FAMOUS_AUTHOR` or `--author=GENERIC_AUTHOR`.
 
 Generate a book:
 
-$ ./mathgen.pl --product=book --mode=pdf --output=mybook.pdf --author="J. Doe"
+    $ ./mathgen.pl --product=book --mode=pdf --output=mybook.pdf --author="J. Doe"
 
 Note that this may take a couple of minutes to generate and compile.
 
@@ -110,7 +110,7 @@ bookshelf, and would make a great gift!
 
 You can also use Lulu.com (or another self-publishing site) to produce
 your own personalized Mathgen textbooks.  The output from
-`--product=book' is set for 6x9 inch paper and should work directly
+`--product=book` is set for 6x9 inch paper and should work directly
 for Lulu's "US Trade" size.  
 
 
@@ -136,17 +136,16 @@ Credits
 =======
 
 Mathgen was written by Nate Eldredge <nate at thatsmathematics dot com>,
-incorporating code from SCIgen (http://pdos.csail.mit.edu/scigen/),
+incorporating code from [SCIgen](http://pdos.csail.mit.edu/scigen/),
 by Jeremy Stribling, Max Krohn, and Dan Aguayo, without whom this
 project would not exist.  Jordan Eldredge wrote most of the web
 interface.
 
 A list of names of famous mathematicians, used in the program, was
-extracted from the web site The Greatest Mathematicians of All Time
-(http://fabpedigree.com/james/greatmm.htm) by James Dow Allen, and is
+extracted from the web site [The Greatest Mathematicians of All 
+Time](http://fabpedigree.com/james/greatmm.htm) by James Dow Allen, and is
 used by permission. A list of countries and other place names was
-taken from Wikipedia
-(http://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_of_place_names)
+taken from [Wikipedia](http://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_of_place_names)
 
 
 License
