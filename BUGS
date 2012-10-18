@@ -18,3 +18,7 @@
   needs to be massaged by hand to be amusing.  But I really only wrote
   it as a one-shot hack to have something to put on the back cover of
   the Lulu books.
+
+- Citations should not appear in the abstract.  But this may be hard
+  to fix without violating context-free-ness or excessive repetitition
+  in the grammar.
