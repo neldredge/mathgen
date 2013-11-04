@@ -259,6 +259,7 @@ dump_to_file(generate_bibtex($text), $bibname);
 
 pdflatex($basename);
 bibtex($basename);
+($product eq 'book') and makeindex($basename);
 pdflatex($basename);
 pdflatex($basename);
 
