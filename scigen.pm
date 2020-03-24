@@ -198,7 +198,7 @@ sub pretty_print_latex {
                           (?:title)
                        )
                       )
-                      {(.*)}/x ) {
+                      \{(.*)\}/x ) {
 	    my ($command, $title) = ($1, $2);
 	    chomp $title;
 	    chomp $title;
@@ -214,7 +214,7 @@ sub pretty_print_latex {
 	     	    $newline = "${command}[${short_title}]{${title}}"
 	     	}
 	    } else {
-	    $newline = "${command}{${title}}";
+		$newline = "${command}{${title}}";
 	    }
 	} elsif( $line =~ /\\index/ ) {
 	    $newline = $line; # don't mangle index entries
