@@ -327,6 +327,7 @@ sub break_latex($$$) {
 }
 
 sub expand {
+    no warnings 'recursion';
     my ($rules, $start, $RE, $debug) = @_;
 
     # check for special rules ending in + and # 
