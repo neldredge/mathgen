@@ -236,6 +236,23 @@ sub add_author_rules {
 }
 
 sub add_year_rules {
+    my ($rules) = @_;
+    my @year_rule = ();
+    my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
+    my $thisyear = $year + 1900;
+
+    # We wish to have entries for each of the last 100 years, with
+    # more recent years being exponentially more likely
+    my $nyears = 100;
+    my $r = 35; # newest year is this many times more likely than oldest
+
+    foreach my $i (0..$nyears-1) {  # don't use the current year
+	my $y = $thisyear - $nyears + $i;
+	my $n = $r**($i/$nyears);
+	push(@year_rule, ($y) x $n);
+    }
+    
+    $rules->{"SCI_YEAR"} = \@year_rule;
 }
 
 sub setup_rules {
