@@ -39,7 +39,75 @@ my $bibname = "scigenbibfile.bib";
 
 my $data_dir = '.';
 
+my @authors;
+my $mode = $default_mode; # pdf, zip, dir, view, raw (undocumented)
+my $viewer = $default_viewer;
+my $dir;
+my $output;
+my $product = $default_product;
+my $seed;
+my $debug = 0;
 
+my %options;
+
+my $output_fh;
+
+my $rules = {};
+my $rules_RE = undef;
+
+sub readme_text {
+    my ($p, $basename) = @_;
+    my $t;
+    if ($p eq 'article') {
+	$t = <<"EOF";
+To recompile this file, run:
+
+pdflatex $basename
+bibtex $basename
+pdflatex $basename
+pdflatex $basename
+
+You need the following packages installed:
+
+AMS-LaTeX
+fullpage
+mathrsfs
+natbib
+truncate
+EOF
+	; # fix indentation for emacs
+    } elsif ($p eq 'book') {
+	$t =  <<"EOF";
+To recompile this file, run:
+
+pdflatex $basename
+bibtex $basename
+makeindex $basename.idx
+pdflatex $basename
+pdflatex $basename
+
+You need the following packages installed:
+
+AMS-LaTeX
+geometry
+mathrsfs
+natbib
+txfonts
+hyphenat
+textcase
+hyperref
+truncate
+titlesec
+makeidx
+url
+tocbibind
+
+The output is set to 6x9 inch paper and is suitable for lulu.com.
+EOF
+	;
+    }
+    return $t;
+}
 
 sub usage {
     select(STDERR);
@@ -74,102 +142,89 @@ EOUsage
 
 }
 
-my @authors;
-my $mode = $default_mode; # pdf, zip, dir, view, raw (undocumented)
-my $viewer = $default_viewer;
-my $dir;
-my $output;
-my $product = $default_product;
-my $seed;
-my $debug = 0;
-
-my %options;
-GetOptions( \%options, 
-	    "help|?" => \&usage,
-	    "author=s@" => \@authors, 
-	    "mode=s" => \$mode,
-	    "viewer=s" => \$viewer,
-	    "dir=s" => \$dir,
-	    "output=s" => \$output,
-	    "product=s" => \$product,
-	    "seed=i" => \$seed,
-	    "debug!" => \$debug)
-    or usage();
-
-if (!$modes{$mode}) {
-    printf STDERR "$0: Unknown mode $mode\n";
-    usage();
-}
-
-if (!$products{$product}) {
-    printf STDERR "$0: Unknown product $product\n";
-    usage();
-}
-
-if (!@authors) { # No author supplied
-    @authors = ("AUTHOR"); # random author
-}
-
-if (!defined($dir)) {
-    $dir = tempdir("mathgen.$$.XXXXXXXXXXXXXXXXXXXXXXXX",
-		   TMPDIR => 1,
-		   CLEANUP => ($debug ? 0 : 1))
-	or die("tempdir: $!");
-    if ($debug) {
-	print STDERR "dir = $dir\n";
-    } 
-}
-
-my $output_fh;
-
-if (defined($output)) {
-    if ($output eq '-') {
-	$output_fh = *STDOUT;
-    } else {
-	open($output_fh, ">$output")
-	    or die("$output: $!");
-    }
-} else {
-    if ($mode eq 'pdf' or $mode eq 'zip' or $mode eq 'raw') {
-	print STDERR "$0: Must specify --output with --mode pdf,zip,raw\n";
+sub parse_options {
+    GetOptions( \%options, 
+		"help|?" => \&usage,
+		"author=s@" => \@authors, 
+		"mode=s" => \$mode,
+		"viewer=s" => \$viewer,
+		"dir=s" => \$dir,
+		"output=s" => \$output,
+		"product=s" => \$product,
+		"seed=i" => \$seed,
+		"debug!" => \$debug)
+	or usage();
+    if (!$modes{$mode}) {
+	printf STDERR "$0: Unknown mode $mode\n";
 	usage();
     }
+
+    if (!$products{$product}) {
+	printf STDERR "$0: Unknown product $product\n";
+	usage();
+    }
+
+    # Blurb mode is a hack because the output is text not tex
+    if ($product eq 'blurb' and $mode ne 'raw') {
+	printf STDERR "$0: --product=blurb only works with --mode=raw";
+	usage();
+    }
+    
+    if (!@authors) { # No author supplied
+	@authors = ("AUTHOR"); # random author
+    }
 }
 
-if (defined($seed)) {
-    srand($seed);
-} else {
-    # In 5.14 srand returns seed value
-    if (0 and $^V and $^V ge v5.14) { # disabled until it can be tested
-	$seed = srand();
-    } else { # backward compatible
-	$seed = int rand 0xffffffff;
+sub setup_dir {   
+    if (!defined($dir)) {
+	$dir = tempdir("mathgen.$$.XXXXXXXXXXXXXXXXXXXXXXXX",
+		       TMPDIR => 1,
+		       CLEANUP => ($debug ? 0 : 1))
+	    or die("tempdir: $!");
+	if ($debug) {
+	    print STDERR "dir = $dir\n";
+	}
+    }
+    chdir($dir) or die("$dir: $!");
+}
+
+sub open_output {
+    if (defined($output)) {
+	if ($output eq '-') {
+	    $output_fh = *STDOUT;
+	} else {
+	    open($output_fh, ">$output")
+		or die("$output: $!");
+	}
+    } else {
+	if ($mode eq 'pdf' or $mode eq 'zip' or $mode eq 'raw') {
+	    print STDERR "$0: Must specify --output with --mode pdf,zip,raw\n";
+	    usage();
+	}
+    }
+}
+
+sub setup_seed {
+    if (defined($seed)) {
 	srand($seed);
-    }
-    if ($debug) {
-	print STDERR "seed = $seed\n";
+    } else {
+	# In 5.14 srand returns seed value
+	if (0 and $^V and $^V ge v5.14) { # disabled until it can be tested
+	    $seed = srand();
+	} else { # backward compatible
+	    $seed = int rand 0xffffffff;
+	    srand($seed);
+	}
+	if ($debug) {
+	    print STDERR "seed = $seed\n";
+	}
     }
 }
 
-# Blurb mode is a hack because the output is text not tex
-if ($product eq 'blurb' and $mode ne 'raw') {
-    printf STDERR "$0: --product=blurb only works with --mode=raw";
-    usage();
-}
 
-# Open rule file
-my $rulefile = "${data_dir}/sci${product}.in";
-my $rule_fh;
-open($rule_fh, "<$rulefile")
-    or die("$rulefile: $!");
-
-my $rules = {};
-my $rules_RE = undef;
-
-# add predefined rules
-$rules->{"AUTHOR_NAME"} = \@authors;
-
-{
+sub add_author_rules {
+    my ($rules) = @_;
+    $rules->{"AUTHOR_NAME"} = \@authors;
     my $s = "";
     my @a = @authors;
     my $la = pop(@a);
@@ -180,15 +235,29 @@ $rules->{"AUTHOR_NAME"} = \@authors;
     $rules->{"SCIAUTHORS"} = [ $s ];
 }
 
-$rules->{"SEED"} = [ $seed ];
+sub add_year_rules {
+}
 
-scigen::read_rules ($rule_fh, $rules, \$rules_RE, $debug);
-my $text = scigen::generate (
-    $rules, 'START', $rules_RE, $debug, $products{$product}{PRETTY});
+sub setup_rules {
 
-if ($mode eq 'raw') {
-    print $output_fh $text;
-    exit 0; # why does indent screw up here?
+    # Open rule file
+    my $rulefile = "${data_dir}/sci${product}.in";
+    my $rule_fh;
+    open($rule_fh, "<$rulefile")
+	or die("$rulefile: $!");
+    
+    $rules->{"SEED"} = [ $seed ];
+    add_author_rules($rules);
+    add_year_rules($rules);
+    
+    scigen::read_rules ($rule_fh, $rules, \$rules_RE, $debug);
+
+}
+
+    
+sub generate_text {
+    return scigen::generate (
+	$rules, 'START', $rules_RE, $debug, $products{$product}{PRETTY});
 }
 
 sub generate_bibtex;
@@ -198,95 +267,8 @@ sub bibtex;
 sub makeindex;
 sub output_filespec;
 sub dump_to_file;
-my $basename = "mathgen-$seed";
-
-my $article_readme_text = <<"EOF";
-To recompile this file, run:
-
-pdflatex $basename
-bibtex $basename
-pdflatex $basename
-pdflatex $basename
-
-You need the following packages installed:
-
-AMS-LaTeX
-fullpage
-mathrsfs
-natbib
-truncate
-EOF
-    ; # fix indentation for emacs
-
-my $book_readme_text = <<"EOF";
-To recompile this file, run:
-
-pdflatex $basename
-bibtex $basename
-makeindex $basename.idx
-pdflatex $basename
-pdflatex $basename
-
-You need the following packages installed:
-
-AMS-LaTeX
-geometry
-mathrsfs
-natbib
-txfonts
-hyphenat
-textcase
-hyperref
-truncate
-titlesec
-makeidx
-url
-tocbibind
-
-The output is set to 6x9 inch paper and is suitable for lulu.com.
-EOF
-    ;
-
-my %readme_text = (
-    'article' => $article_readme_text,
-    'book' => $book_readme_text
-    );
 
 
-chdir($dir) or die("$dir: $!");
-dump_to_file($text, "$basename.tex");
-dump_to_file(generate_bibtex($text), $bibname);
-
-pdflatex($basename);
-bibtex($basename);
-($product eq 'book') and makeindex($basename);
-pdflatex($basename);
-pdflatex($basename);
-
-# Now just dispose of the output appropriately
-
-if ($mode eq 'pdf') {
-    output_filespec("<$basename.pdf", "$basename.pdf");
-} elsif ($mode eq 'zip') {
-    dump_to_file($readme_text{$product}, 'README');
-    # Useless Use Of Cat issue: we could have zip write to the 
-    # output directly.  But we already opened it, and I don't feel like
-    # special casing that for --mode=zip.  Also trying to pass the output
-    # filename in a shell command seems dicey.
-    output_filespec("zip - $basename.tex $basename.pdf $bibname README |",
-		    "zip");
-} elsif ($mode eq 'view') {
-    system("$viewer $basename.pdf");
-} elsif ($mode eq 'dir') {
-    # Nothing to do here!
-}
-
-# We need to not be in the temp directory if it's going to be deleted
-if ($debug) {
-    print STDERR "dir = $dir, seed = $seed\n";
-}
-chdir('/');
-exit 0;
 
 # Subroutines follow
 
@@ -346,3 +328,55 @@ sub makeindex {
     system("makeindex $base.idx " . '1>&2')
 	and die("makeindex failed");
 }
+
+sub do_output {
+    my ($text) = @_;
+    if ($mode eq 'raw') {
+	print $output_fh $text;
+	return;
+    }
+    setup_dir();
+    my $basename = "mathgen-$seed";
+    dump_to_file($text, "$basename.tex");
+    dump_to_file(generate_bibtex($text), $bibname);
+    
+    pdflatex($basename);
+    bibtex($basename);
+    ($product eq 'book') and makeindex($basename);
+    pdflatex($basename);
+    pdflatex($basename);
+
+    # only used in some modes, but simpler to do it unconditionally
+    dump_to_file(readme_text($product, $basename), 'README');
+
+    # Now just dispose of the output appropriately
+    
+    if ($mode eq 'pdf') {
+	output_filespec("<$basename.pdf", "$basename.pdf");
+    } elsif ($mode eq 'zip') {
+	# Useless Use Of Cat issue: we could have zip write to the 
+	# output directly.  But we already opened it, and I don't feel like
+	# special casing that for --mode=zip.  Also trying to pass the output
+	# filename in a shell command seems dicey.
+	output_filespec("zip - $basename.tex $basename.pdf $bibname README |",
+			"zip");
+    } elsif ($mode eq 'view') {
+	system("$viewer $basename.pdf");
+    } elsif ($mode eq 'dir') {
+	# Nothing to do here!
+    }
+    # We need to not be in the temp directory if it's going to be
+    # deleted.  Ideally we would change back to the directory where we
+    # were, but that is too much trouble, and we are not going to do
+    # anything else there anyway.
+    chdir('/');
+}    
+
+
+parse_options();
+setup_seed();
+open_output();
+setup_rules();
+do_output(generate_text());
+
+exit 0;
