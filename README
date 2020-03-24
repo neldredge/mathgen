@@ -3,8 +3,8 @@ Mathgen
 
 Mathgen is a tool to randomly generate fake mathematics papers.
 
-Online version: http://thatsmathematics.com/mathgen/
-Blog page: http://thatsmathematics.com/blog/mathgen/
+Online version: https://thatsmathematics.com/mathgen/
+Blog page: https://thatsmathematics.com/blog/mathgen/
 Source code (Github): https://github.com/neldredge/mathgen
 
 
@@ -98,7 +98,7 @@ As an unofficial fundraiser for the American Mathematical Society, I
 am selling randomly generated textbooks via Lulu.com.  For more
 information, visit
 
-http://thatsmathematics.com/blog/mathgen-books/
+https://thatsmathematics.com/blog/mathgen-books/
 
 US$5.00 from each sale will be donated to the AMS.   I earn no other
 money from these books.
@@ -140,17 +140,17 @@ Credits
 =======
 
 Mathgen was written by Nate Eldredge <nate at thatsmathematics dot com>,
-incorporating code from SCIgen (http://pdos.csail.mit.edu/scigen/),
+incorporating code from SCIgen (https://pdos.csail.mit.edu/scigen/),
 by Jeremy Stribling, Max Krohn, and Dan Aguayo, without whom this
 project would not exist.  Jordan Eldredge wrote most of the web
 interface.
 
 A list of names of famous mathematicians, used in the program, was
 extracted from the web site The Greatest Mathematicians of All Time
-(http://fabpedigree.com/james/greatmm.htm) by James Dow Allen, and is
+(https://fabpedigree.com/james/greatmm.htm) by James Dow Allen, and is
 used by permission. A list of countries and other place names was
 taken from Wikipedia
-(http://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_of_place_names)
+(https://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_of_place_names)
 
 
 License
