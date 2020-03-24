@@ -59,6 +59,10 @@ The current default behavior, if `mathgen.pl' is run without options,
 is to generate an article with one randomly generated author and view
 the output with `evince'.
 
+NOTE: since recent versions of Perl no longer search the current
+directory by default, if you get an error saying "Can't locate
+scigen.pn in @INC", you can run `perl -I. ./mathgen.pl` instead.  This
+will eventually be replaced with a proper installation procedure.
 
 Examples
 ========
