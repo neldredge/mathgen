@@ -240,6 +240,27 @@ sub pretty_print_latex {
     return $news;
 }
 
+# Note that for names like "d'Alembert" the d' is not really part of the last name.
+sub get_lastname {
+    my ($name) = @_;
+    $name =~ /([[:upper:]][^\s]*)\s*$/;
+    return $1;
+}
+
+# consider Lingua::EN::NameParse to do this properly
+sub sort_authors {
+    my ($s) = @_;
+    # A few papers might have non-alphabetical authors
+    return $s if (rand() < 0.03);
+    my @authors = split(' and ', $s);
+    my @asort = sort {
+	get_lastname($a) cmp get_lastname($b)
+	    ||
+	    $a cmp $b
+    } @authors;
+    return join(' and ', @asort);
+}
+
 sub pretty_print_bibtex {
     my @lines = split( /\n/, $_[0] );
     my $out;
@@ -253,6 +274,11 @@ sub pretty_print_bibtex {
 	    $title = enbracket($title);
 	    $title = my_entitle($title);
 	    $line = $first . $title . $last;
+	}
+	# sort author lists
+	if ($line =~ /\s*author\s*=\s*\{(.*)\}/) {
+	    my $authors = sort_authors($1);
+	    $line = "author = { $authors },";
 	}
 	# Protect all math with brackets
 	$line =~ s/(\$.*?\$)/\{$1\}/g;
