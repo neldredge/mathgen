@@ -254,6 +254,8 @@ sub pretty_print_bibtex {
 	    $title = my_entitle($title);
 	    $line = $first . $title . $last;
 	}
+	# Protect all math with brackets
+	$line =~ s/(\$.*?\$)/\{$1\}/g;
 	$out .= $line . "\n";
     }
     return $out;
