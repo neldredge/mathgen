@@ -1,12 +1,5 @@
 - Lots of overfull hboxes.
 
-- If an article title gets $\mathcal{A}$ in it (from PREFIX), bibtex
-  lowercases it to $\mathcal{a}$ which renders as a funny character.
-  $\mathcal{{A}}$ works ok.  However enbracket makes it
-  ${\mathcal{{A}}}$ which oddly gets lowercased again.  This seems
-  really a bibtex bug.  Maybe too much trouble to fix.  It should
-  happen only rarely and at least still compiles.
-
 - Author names appear multiple times in a single reference.  Perhaps
   we should just embrace this as a feature of the program's
   context-free nature.
