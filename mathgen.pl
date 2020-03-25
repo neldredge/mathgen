@@ -181,9 +181,6 @@ sub setup_dir {
 		       TMPDIR => 1,
 		       CLEANUP => ($debug ? 0 : 1))
 	    or die("tempdir: $!");
-	if ($debug) {
-	    print STDERR "dir = $dir\n";
-	}
     }
     chdir($dir) or die("$dir: $!");
 }
@@ -381,6 +378,9 @@ sub do_output {
 	system("$viewer $basename.pdf");
     } elsif ($mode eq 'dir') {
 	# Nothing to do here!
+    }
+    if ($debug) {
+	print STDERR "dir = $dir\n";
     }
     # We need to not be in the temp directory if it's going to be
     # deleted.  Ideally we would change back to the directory where we
